@@ -6,15 +6,15 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 09:07:09 by jthiele           #+#    #+#             */
-/*   Updated: 2022/01/31 12:39:33 by jthiele          ###   ########.fr       */
+/*   Updated: 2022/01/31 15:26:35 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <unistd.h>
-#include <stdlib.h>
+#	include <unistd.h>
+#	include <stdlib.h>
 
 int	ft_isupper(int c);
 int	ft_islower(int c);
