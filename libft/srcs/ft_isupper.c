@@ -6,11 +6,11 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 08:54:43 by jthiele           #+#    #+#             */
-/*   Updated: 2022/01/17 09:49:41 by jthiele          ###   ########.fr       */
+/*   Updated: 2022/01/18 16:09:30 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isupper(char c)
+int	ft_isupper(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c);

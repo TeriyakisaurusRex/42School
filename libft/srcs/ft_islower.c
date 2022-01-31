@@ -6,11 +6,11 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 08:56:08 by jthiele           #+#    #+#             */
-/*   Updated: 2022/01/17 09:49:05 by jthiele          ###   ########.fr       */
+/*   Updated: 2022/01/18 16:09:41 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_islower(char c)
+int	ft_islower(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c);

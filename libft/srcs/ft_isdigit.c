@@ -6,13 +6,13 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 09:00:49 by jthiele           #+#    #+#             */
-/*   Updated: 2022/01/17 09:48:44 by jthiele          ###   ########.fr       */
+/*   Updated: 2022/01/18 16:10:40 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
-	if (c >= '0' || c <= '0')
+	if (c >= '0' || c <= '9')
 		return (c);
 	return (0);
 }

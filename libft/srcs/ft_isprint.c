@@ -6,11 +6,11 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 09:19:04 by jthiele           #+#    #+#             */
-/*   Updated: 2022/01/17 09:49:23 by jthiele          ###   ########.fr       */
+/*   Updated: 2022/01/18 16:12:35 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char c)
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 127)
 		return (c);

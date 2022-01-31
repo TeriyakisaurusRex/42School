@@ -6,22 +6,23 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 10:19:19 by jthiele           #+#    #+#             */
-/*   Updated: 2022/01/17 12:46:09 by jthiele          ###   ########.fr       */
+/*   Updated: 2022/01/19 11:57:38 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, char c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
-	char	*ret;
+	char	*res;
+	char	*last;
 
-	i = 0;
-	ret = 0;
-	while (s[i])
+	res = (char *)s;
+	last = 0;
+	c = (char)c;
+	while (*res)
 	{
-		if (s[i] == c)
-			ret = ((char *)s + i);
-		i++;
+		if (*res == c)
+			last = (res);
+		res++;
 	}
-	return (ret);
+	return (last);
 }

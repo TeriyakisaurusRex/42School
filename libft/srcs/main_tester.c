@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   main_tester.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/17 12:51:34 by jthiele           #+#    #+#             */
-/*   Updated: 2022/01/28 15:39:03 by jthiele          ###   ########.fr       */
+/*   Created: 2022/01/17 10:00:22 by jthiele           #+#    #+#             */
+/*   Updated: 2022/01/31 12:23:48 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <string.h>
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
-{
-	int				i;
-	unsigned char	*str;
 
-	i = 0;
-	str = (unsigned char *)s;
-	while (n-- && str[i])
+int main()
+{
+	char string[] = "__this is__ a _-___string__";
+	char c = '_';
+	char **array;
+	int i = 0;
+
+	array = ft_split(string, c);
+
+	while (array[i])
 	{
-		str[i] = '\0';
+		ft_putendl_fd(array[i], 1);
 		i++;
 	}
-	return ;
-}
 
-//add testing original [a , p , p, \0 , e]
+}
