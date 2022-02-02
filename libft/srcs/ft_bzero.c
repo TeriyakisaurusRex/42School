@@ -6,7 +6,7 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:51:34 by jthiele           #+#    #+#             */
-/*   Updated: 2022/01/28 15:39:03 by jthiele          ###   ########.fr       */
+/*   Updated: 2022/02/02 11:22:36 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ void	ft_bzero(void *s, size_t n)
 
 	i = 0;
 	str = (unsigned char *)s;
-	while (n-- && str[i])
+	while (n--)
 	{
 		str[i] = '\0';
 		i++;
 	}
 	return ;
 }
-
-//add testing original [a , p , p, \0 , e]

@@ -6,58 +6,24 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:10:33 by jthiele           #+#    #+#             */
-/*   Updated: 2022/01/28 15:47:04 by jthiele          ###   ########.fr       */
+/*   Updated: 2022/02/02 14:13:35 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	trim_end(const char *s1, const char *set, int dir)
-{
-	unsigned int	trim;
-	unsigned int	i;
-	unsigned int	j;
-
-	trim = 0;
-	i = 0;
-	if (dir > 0)
-		j = 0;
-	else
-		j = ft_strlen(s1) - 1;
-	while (set[i])
-	{
-		if (s1[j] == set[i])
-		{
-			trim++;
-			j += dir;
-			i = 0;
-		}
-		else
-			i++;
-	}
-	return (trim);
-}
-
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	char			*str;
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	k;
-	unsigned int	len;
+	size_t	i;
 
-	i = 0;
-	j = trim_end(s1, set, 1);
-	k = trim_end(s1, set, -1);
-	len = (ft_strlen(s1) - (j + k));
-	str = ft_calloc((len + 1), sizeof(char));
-	if (!str)
+	if (!s1)
 		return (0);
-	while (len--)
-	{
-		str[i] = s1[i + j];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	if (!set)
+		return (ft_substr(s1, 0, ft_strlen(s1)));
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	i = ft_strlen(s1);
+	while (i && ft_strchr(set, s1[i]))
+		i--;
+	return (ft_substr(s1, 0, i + 1));
 }

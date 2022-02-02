@@ -6,62 +6,73 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:15:57 by jthiele           #+#    #+#             */
-/*   Updated: 2022/01/31 15:35:01 by jthiele          ###   ########.fr       */
+/*   Updated: 2022/02/02 14:15:01 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*strtrimdelimeter(char const *s, char c)
+static size_t	word_count(char const *s, char delim)
 {
-	char	*delimeter;
-	char	*rtn;
+	size_t	words;
+	size_t	i;
+	char	flag;
 
-	delimeter = ft_calloc(2, sizeof(char));
-	delimeter[0] = c;
-	rtn = ft_strtrim(s, delimeter);
-	free(delimeter);
-	return (rtn);
-}
-
-static int	populatearray(int nbrstrs, char **rtnar, char c, char *ts)
-{
-	int	i;
-	int	j;
-
+	words = 0;
 	i = 0;
-	j = 0;
-	while (nbrstrs--)
+	flag = 1;
+	while (s[i])
 	{
-		rtnar[i] = ft_strddup(ts + j, c);
-		j += ft_strlen(rtnar[i]);
-		while (ts[j] == c)
-			j++;
+		if (flag && s[i] != delim)
+		{
+			flag = 0;
+			words++;
+		}
+		else if (!flag && s[i] == delim)
+			flag = 1;
 		i++;
 	}
-	return (i);
+	return (words);
+}
+
+static char	*populatestr(char const **s, char c)
+{
+	char	*str;
+	size_t	len;
+
+	len = 0;
+	while (**s && **s == c)
+		(*s)++;
+	while ((*s)[len] && (*s)[len] != c)
+		len++;
+	str = ft_calloc(len + 1, sizeof(str));
+	if (!str)
+		return (str);
+	ft_memcpy(str, *s, len);
+	*s += len;
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**rtnar;
-	char	*ts;
-	int		delimetercount;
-	int		nbrstrs;
-	int		i;
+	size_t	words;
+	size_t	i;
+	char	**strs;
 
-	ts = strtrimdelimeter(s, c);
 	i = 0;
-	delimetercount = 0;
-	while (ts[i])
+	if (!s)
+		return (NULL);
+	words = word_count(s, c);
+	strs = ft_calloc(words + 1, sizeof(char *));
+	if (!strs)
+		return (strs);
+	while (i < words)
 	{
-		if (ts[i] == c && ts[i + 1] != c)
-			delimetercount++;
+		strs[i] = populatestr(&s, c);
+		if (!strs[i])
+			return (0);
 		i++;
 	}
-	i = 0;
-	nbrstrs = delimetercount + 1;
-	rtnar = ft_calloc(sizeof(rtnar), (nbrstrs + 1));
-	populatearray(nbrstrs, rtnar, c, ts);
-	return (rtnar);
+	strs[i] = NULL;
+	return (strs);
 }
