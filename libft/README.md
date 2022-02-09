@@ -55,6 +55,8 @@
 
 
 **RESULT**
-125/100<img width="1870" alt="Screen Shot 2021-12-01 at 1 36 06 PM" src="https://user-images.githubusercontent.com/94874173/153122743-6af9d4e9-0a04-4ab3-b5e6-515ac21c4b45.png">
+125/100<img width="2065" alt="Screen Shot 2022-02-09 at 3 05 36 PM" src="https://user-images.githubusercontent.com/94874173/153122815-d47173ae-1a94-4335-a3bb-537402ad6db7.png">
+
+
 
 
