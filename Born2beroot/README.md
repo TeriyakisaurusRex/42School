@@ -9,3 +9,7 @@ Guides followed
 - [Main Guide Followed](https://baigal.medium.com/born2beroot-e6e26dfb50ac)
 - [Aarons Guide](https://github.com/IsCoffeeTho/42-Born2BeRoot)
 - [Copied Script](https://github.com/HEADLIGHTER/Born2BeRoot-42)
+
+
+# Result
+Not Handed In Yet / 100
