@@ -71,7 +71,7 @@ Now we should be able to get a simple tester running to help us understand how r
 ```bash
 $ gcc main.c && echo "Eggs" | ./a.out
 ```
-will return `Eggs` to the command line. That is reading and writing one byte at a time. now we could do this from another file. If we make a \*.txt file and 
+will return `Eggs` to the command line. That is reading and writing one byte at a time. now we could do this from another file. If we make a \*.txt file and *cat* and pipe it over it should be able to read it. That will be useful for our GNL testing purposes.
 
 Assumptions
 - We are reading text files, i.e. only char values and iterating one byte at a time
