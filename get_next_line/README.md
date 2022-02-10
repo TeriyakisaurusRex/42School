@@ -82,3 +82,6 @@ Ideas
 - give up and cry
 - steal someone elses code when they are not looking
 - make it work with pipe i.e. `$echo "This" | ./a.out`
+
+# Result
+Not Handed In Yet / 100
