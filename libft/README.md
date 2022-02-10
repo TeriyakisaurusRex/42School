@@ -54,7 +54,8 @@
 | [ft_lstmap](https://github.com/TeriyakisaurusRex/42School/blob/master/libft/srcs/ft_lstmap.c)           | check     | 
 
 
-**RESULT**
+
+# Result
 125/100<img width="2065" alt="Screen Shot 2022-02-09 at 3 05 36 PM" src="https://user-images.githubusercontent.com/94874173/153122815-d47173ae-1a94-4335-a3bb-537402ad6db7.png">
 
 
