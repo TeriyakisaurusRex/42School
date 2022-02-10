@@ -25,9 +25,15 @@
 > ### Buffer
 >> [What is a buffer size](https://www.quora.com/Why-is-buffer-size-set-in-a-C-program#:~:text=Using%20C%20code%2C%20user%20can,in%20whatever%20manner%20you%20want.)
 > ### stdin - Standard Input
->> []()
+>> [streams](https://en.wikipedia.org/wiki/Standard_streams)
+>> 
+>> [stdin](https://man7.org/linux/man-pages/man3/stdin.3.html)
 > ### stdout - Stardard Output
 >> [stdout](http://www.linfo.org/standard_output.html)
+> ### FILE variable
+>> [What is data type of FILE](https://www.geeksforgeeks.org/data-type-file-c/)
+>> 
+>> [FILE I/O](https://www.tutorialspoint.com/cprogramming/c_file_io.htm)
 
 ---
 
