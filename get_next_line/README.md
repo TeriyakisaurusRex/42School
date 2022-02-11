@@ -23,6 +23,8 @@
 >> 
 >> [What does static mean in C?](https://stackoverflow.com/questions/572547/what-does-static-mean-in-c)
 > ### Buffer
+>> [What is a buffer?](https://www.educative.io/edpresso/what-is-a-buffer-in-c)
+>>
 >> [What is a buffer size](https://www.quora.com/Why-is-buffer-size-set-in-a-C-program#:~:text=Using%20C%20code%2C%20user%20can,in%20whatever%20manner%20you%20want.)
 > ### stdin - Standard Input
 >> [streams](https://en.wikipedia.org/wiki/Standard_streams)
@@ -83,11 +85,11 @@ Assumptions
 - We are reading text files, i.e. only char values and iterating one byte at a time
 
 Ideas
-- malloc and concatonate each char into a string until we hit the *'\\n'* character
-- count along the as we move until we hit the '\\n' character then move backwards the same amount of steps. Then malloc that whole string.
+- malloc and concatonate each char into a string until we hit the *'\\n'* character ***slow***
+- count along the as we move until we hit the '\\n' character then move backwards the same amount of steps. Then malloc that whole string. ***doesn't work***
 - give up and cry
 - steal someone elses code when they are not looking
-- make it work with pipe i.e. `$echo "This" | ./a.out`
+- make it work with pipe i.e. `$echo "This" | ./a.out` ***done***
 
 # Result
 Not Handed In Yet / 100
