@@ -43,7 +43,7 @@ We need to revisit our piscine - [C00 Exercise 0](https://github.com/Teriyakisau
 `ssize_t write(int fd, const void *__buf, size_t count);`
 we know that `ssize_t` is a signed [`size_t`](https://www.geeksforgeeks.org/size_t-data-type-c-language/), and size_t is just a big integer (*size depending on OS*). [`fd`](https://en.wikipedia.org/wiki/File_descriptor) is just 0, 1 or 2, Standard input, output and error respectively.
 
-```
+```c
   #include <unistd.h>
   int main()
   {
@@ -64,7 +64,7 @@ using read will return a `ssize_t` which is the number of bytes read, this can b
 
 
 Now we should be able to get a simple tester running to help us understand how read works. `read` wants a *file descripter* and standard input is 0 so you do the math on that one. The second parameter is a pointer, we want this to be a pointer to a string (or maybe a pointer to a char with *&c*). Next is the size that we a looking with, we can make that 1 byte for our tester but it can be bigger if we want.
-```
+```c
   #include <unistd.h>
   int main()
   {
