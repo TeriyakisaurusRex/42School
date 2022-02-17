@@ -86,8 +86,8 @@ Attempting to do the same code as above with a string doesn't work. Turns out we
   #include <unistd.h>
   #include <stdlib.h>
   char *s;
-  size_t BUFSIZE = 3; #size of the string / buffer
-  s = malloc(BUFFSIZE + 1);
+  size_t BUFSIZE = 3; // size of the string / buffer
+  s = malloc(BUFFSIZE);
   while (read(0, s, BUFSIZE) > 0)
     {
       write(1, s, BUFSIZE);
@@ -95,17 +95,23 @@ Attempting to do the same code as above with a string doesn't work. Turns out we
   return (0)
   }
 ```
-  
+Now we should begin testing with a file and probably one with a newline in it.
+```
+File \n
+Second Line \n
+Third and final Line EOF
+```
 
 Assumptions
 - We are reading text files, i.e. only char values and iterating one byte at a time
 
 Ideas
 - malloc and concatonate each char into a string until we hit the *'\\n'* character ***slow***
-- count along the as we move until we hit the '\\n' character then move backwards the same amount of steps. Then malloc that whole string. ***doesn't work***
+- count along the as we move until we hit the '\n' character then move backwards the same amount of steps. Then malloc that whole string. ***doesn't work***
 - give up and cry
 - steal someone elses code when they are not looking
 - make it work with pipe i.e. `$echo "This" | ./a.out` ***done***
+- make it work with and actual file
 
 # Result
 Not Handed In Yet / 100
