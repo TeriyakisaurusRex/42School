@@ -81,6 +81,22 @@ $ gcc main.c && echo "Eggs" | ./a.out
 ```
 will return `Eggs` to the command line. That is reading and writing one byte at a time. now we could do this from another file. If we make a \*.txt file and *cat* and pipe it over it should be able to read it. That will be useful for our GNL testing purposes.
 
+Attempting to do the same code as above with a string doesn't work. Turns out we have to malloc it.
+```c
+  #include <unistd.h>
+  #include <stdlib.h>
+  char *s;
+  size_t BUFSIZE = 3; #size of the string / buffer
+  s = malloc(BUFFSIZE + 1);
+  while (read(0, s, BUFSIZE) > 0)
+    {
+      write(1, s, BUFSIZE);
+    }
+  return (0)
+  }
+```
+  
+
 Assumptions
 - We are reading text files, i.e. only char values and iterating one byte at a time
 
