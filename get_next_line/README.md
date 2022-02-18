@@ -85,15 +85,24 @@ Attempting to do the same code as above with a string doesn't work. Turns out we
 ```c
   #include <unistd.h>
   #include <stdlib.h>
-  char *s;
-  size_t BUFSIZE = 3; // size of the string / buffer
-  s = malloc(BUFFSIZE);
-  while (read(0, s, BUFSIZE) > 0)
-    {
-      write(1, s, BUFSIZE);
-    }
-  return (0)
+  int main()
+  {
+    char *s;
+    size_t BUFSIZE = 3; // size of the string / buffer
+    s = malloc(BUFFSIZE);
+    while (read(0, s, BUFSIZE) > 0)
+      {
+        write(1, s, BUFSIZE);
+      }
+    return (0)
   }
+```
+now that we have that working we should try to copy the buffer into a string to store it properly and then pass that back or print it out.
+```c
+  #include <unistd.h>
+  #include <stdlib.h>
+  int main()
+  //strdup or something
 ```
 Now we should begin testing with a file and probably one with a newline in it.
 ```
