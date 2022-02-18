@@ -101,9 +101,30 @@ now that we have that working we should try to copy the buffer into a string to 
 ```c
   #include <unistd.h>
   #include <stdlib.h>
+  #include <string.h>
+  #include <stdio.h>
+  
+  char *get_next_line(int fd)
+  {
+    char *rtn;
+    char *buf_string;
+    ssize_t bufsize = 6;
+    
+    if (read(fd, buf_string, bufsize) >= bufsize)
+    {
+      rtn = strndup(buf_string, bufsize);
+    }
+    return (rtn);
+  }
+  
   int main()
-  //strdup or something
+  {
+    printf("%s", get_next_line(0));
+    return (0);
+  }
 ```
+this breaks down if the bufsize is too big... why?
+
 Now we should begin testing with a file and probably one with a newline in it.
 ```
 File \n
