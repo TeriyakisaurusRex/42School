@@ -73,7 +73,7 @@ Now we should be able to get a simple tester running to help us understand how r
     {
       write(1, &c, 1);
     }
-    return (0)
+    return (0);
   }
 ```
 ```bash
@@ -94,7 +94,7 @@ Attempting to do the same code as above with a string doesn't work. Turns out we
       {
         write(1, s, BUFSIZE);
       }
-    return (0)
+    return (0);
   }
 ```
 now that we have that working we should try to copy the buffer into a string to store it properly and then pass that back or print it out.
