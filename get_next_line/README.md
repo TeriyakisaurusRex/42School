@@ -123,14 +123,44 @@ now that we have that working we should try to copy the buffer into a string to 
     return (0);
   }
 ```
-this breaks down if the bufsize is too big... why?
+Getting too many errors tring to pipe echo so this is a good point to try to get our program to read from a file. We are going to have to use the `open` function.
+`open` takes a pathname as a string i.e. open("myfile.txt", ...) as its first parameter and it takes flags as its other parameter, we will use `O_RDONLY` *(read-only)* for our purposes. `open` returns a file descripter *(int)* that we will use for `read`, we also have to remember that open is part of the `#include <fcntl.h>` library.
+lets make a file called *test.txt* and put some data in it that we can test with.
+```
+File
+Second Line
+Third and final Line
+```
+now we can change our code to open and read from this file
+```c
+  #include <unistd.h>
+  #include <stdlib.h>
+  #include <string.h>
+  #include <stdio.h>
+  #include <fcntl.h>
+  
+  char *get_next_line(int fd)
+  {
+    char *rtn;
+    char *buf_string;
+    ssize_t bufsize = 6;
+    
+    if (read(fd, buf_string, bufsize) >= bufsize)
+    {
+      rtn = strndup(buf_string, bufsize);
+    }
+    return (rtn);
+  }
+  
+  int main()
+  {
+    int fd = open("test.txt", O_RDONLY); //added this line
+    printf("%s", get_next_line(fd)); //and changed get_next_line to take our new file descripter
+    return (0);
+  }
+```
+now at the moment we are only getting the first 6 *(bufsize)* characters of the file
 
-Now we should begin testing with a file and probably one with a newline in it.
-```
-File \n
-Second Line \n
-Third and final Line EOF
-```
 
 Assumptions
 - We are reading text files, i.e. only char values and iterating one byte at a time
@@ -141,7 +171,7 @@ Ideas
 - give up and cry
 - steal someone elses code when they are not looking
 - make it work with pipe i.e. `$echo "This" | ./a.out` ***done***
-- make it work with and actual file
+- make it work with and actual file ***done***
 
 # Result
 Not Handed In Yet / 100
