@@ -36,7 +36,8 @@
 >> [What is data type of FILE](https://www.geeksforgeeks.org/data-type-file-c/)
 >> 
 >> [FILE I/O](https://www.tutorialspoint.com/cprogramming/c_file_io.htm)
-
+> ### -D gcc flag
+>> [gcc preprocessor options](https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html)
 ---
 
 We need to revisit our piscine - [C00 Exercise 0](https://github.com/TeriyakisaurusRex/42Piscine/blob/main/C_00/ex00/ft_putchar.c) and take a look at the write function with our new knowledge. It makes a bit more sense now
@@ -81,18 +82,20 @@ $ gcc main.c && echo "Eggs" | ./a.out
 ```
 will return `Eggs` to the command line. That is reading and writing one byte at a time. now we could do this from another file. If we make a \*.txt file and *cat* and pipe it over it should be able to read it. That will be useful for our GNL testing purposes.
 
-Attempting to do the same code as above with a string doesn't work. Turns out we have to malloc it.
+Attempting to do the same code as above with a string doesn't work. Turns out we have to malloc it. We will also compile with a macro for the BUFFER_SIZE
+```bash
+$ gcc main.c -D BUFFER_SIZE=6 && echo "Eggs" | ./a.out
+```
 ```c
   #include <unistd.h>
   #include <stdlib.h>
   int main()
   {
     char *s;
-    size_t BUFSIZE = 3; // size of the string / buffer
-    s = malloc(BUFFSIZE);
-    while (read(0, s, BUFSIZE) > 0)
+    s = malloc(BUFFER_SIZE);
+    while (read(0, s, BUFFER_SIZE) > 0)
       {
-        write(1, s, BUFSIZE);
+        write(1, s, BUFFER_SIZE);
       }
     return (0);
   }
@@ -108,11 +111,10 @@ now that we have that working we should try to copy the buffer into a string to 
   {
     char *rtn;
     char *buf_string;
-    ssize_t bufsize = 6;
     
-    if (read(fd, buf_string, bufsize) >= bufsize)
+    if (read(fd, buf_string, BUFFER_SIZE) >= BUFFER_SIZE)
     {
-      rtn = strndup(buf_string, bufsize);
+      rtn = strndup(buf_string, BUFFER_SIZE);
     }
     return (rtn);
   }
@@ -124,7 +126,7 @@ now that we have that working we should try to copy the buffer into a string to 
   }
 ```
 Getting too many errors tring to pipe echo so this is a good point to try to get our program to read from a file. We are going to have to use the `open` function.
-`open` takes a pathname as a string i.e. open("myfile.txt", ...) as its first parameter and it takes flags as its other parameter, we will use `O_RDONLY` *(read-only)* for our purposes. `open` returns a file descripter *(int)* that we will use for `read`, we also have to remember that open is part of the `#include <fcntl.h>` library.
+`open` takes a pathname as a string i.e. `open("myfile.txt", ...)` as its first parameter and it takes flags as its other parameter, we will use `O_RDONLY` *(read-only)* for our purposes. `open` returns a file descripter *(int)* that we will use for `read`, we also have to remember that open is part of the `#include <fcntl.h>` library.
 lets make a file called *test.txt* and put some data in it that we can test with.
 ```
 File
@@ -143,11 +145,10 @@ now we can change our code to open and read from this file
   {
     char *rtn;
     char *buf_string;
-    ssize_t bufsize = 6;
     
-    if (read(fd, buf_string, bufsize) >= bufsize)
+    if (read(fd, buf_string, BUFFER_SIZE) >= BUFFER_SIZE)
     {
-      rtn = strndup(buf_string, bufsize);
+      rtn = strndup(buf_string, BUFFER_SIZE);
     }
     return (rtn);
   }
@@ -155,11 +156,18 @@ now we can change our code to open and read from this file
   int main()
   {
     int fd = open("test.txt", O_RDONLY); //added this line
-    printf("%s", get_next_line(fd)); //and changed get_next_line to take our new file descripter
+    printf("%s", get_next_line(fd)); //and changed the parameter to take our new file descripter
     return (0);
   }
 ```
-now at the moment we are only getting the first 6 *(bufsize)* characters of the file
+now it's time to look at static variables and why we would use one in our program. a static variable will keep its value even after we are done with a function. a simple example would be.
+
+when **BUFFER_SIZE** is 8 we will end up with:
+```diff
++File
+-Sec
+```
+and we only need to return the first line, but we can store the partial second line in a static variable which we can use the next time gnl is called to do this we will reuse a function we make for libft called *ft_substr*.
 
 
 Assumptions
