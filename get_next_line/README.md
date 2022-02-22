@@ -160,14 +160,10 @@ now we can change our code to open and read from this file
     return (0);
   }
 ```
-now it's time to look at static variables and why we would use one in our program. a static variable will keep its value even after we are done with a function. a simple example would be.
 
-when **BUFFER_SIZE** is 8 we will end up with:
-```diff
-+File
--Sec
-```
-and we only need to return the first line, but we can store the partial second line in a static variable which we can use the next time gnl is called to do this we will reuse a function we make for libft called *ft_substr*.
+<img width="616" alt="image" src="https://user-images.githubusercontent.com/94874173/155053154-eeeefda3-9438-42fd-8904-decaec31e838.png">
+First line is buffer moving across 10 bytes at a time, second line is what we need to return. Only read in one direction and we won't be able to go backwards, if we mess this up we will lose a bit of data in the second string. So what we can do is store that data of the partial second line in a ___static variable___ . Then we can use that next time gnl is called. To do this we will reuse a function we make for libft called ft_substr
+
 
 
 Assumptions
