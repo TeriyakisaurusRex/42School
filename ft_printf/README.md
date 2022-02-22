@@ -12,6 +12,8 @@ Summary:
 |\*.c|
 
 >Documents & Information to learn
+> ### Variadic Functions
+>> [Variadic funcitons in c](https://www.geeksforgeeks.org/variadic-functions-in-c/)
 > ### va_start
 >>[]()
 > ### va_arg
