@@ -6,11 +6,11 @@
 
 ---
 
-| Function      | Status    | Notes		|
+| Function      | Status    | MANUAL		|
 |---------------|-----------|-----------|
 | **libc**    | ------	|
-| [ft_isalnum](https://github.com/TeriyakisaurusRex/42School/blob/master/libft/srcs/ft_isalnum.c)       | check     |
-| [ft_isascii](https://github.com/TeriyakisaurusRex/42School/blob/master/libft/srcs/ft_isascii.c)       | check     |
+| [ft_isalnum](https://github.com/TeriyakisaurusRex/42School/blob/master/libft/srcs/ft_isalnum.c)       | check     | [MANUAL](https://github.com/TeriyakisaurusRex/42School/edit/master/libft/README.md#ft_isalnum)
+| [ft_isascii](https://github.com/TeriyakisaurusRex/42School/blob/master/libft/srcs/ft_isascii.c)       | check     | [MANUAL](https://github.com/TeriyakisaurusRex/42School/edit/master/libft/README.md#ft_isascii)
 | [ft_isdigit](https://github.com/TeriyakisaurusRex/42School/blob/master/libft/srcs/ft_isdigit.c)       | check     |
 | [ft_isprint](https://github.com/TeriyakisaurusRex/42School/blob/master/libft/srcs/ft_isprint.c)       | check     |
 | [ft_isspace](https://github.com/TeriyakisaurusRex/42School/blob/master/libft/srcs/ft_isspace.c)       | check     |
@@ -53,6 +53,20 @@
 | [ft_lstiter](https://github.com/TeriyakisaurusRex/42School/blob/master/libft/srcs/ft_lstiter.c)         | check     | 
 | [ft_lstmap](https://github.com/TeriyakisaurusRex/42School/blob/master/libft/srcs/ft_lstmap.c)           | check     | 
 
+
+## man ft_isalnum
+> prototype 
+>> int ft_isalnum(int c)
+>>
+> return
+>> returns 1 if the char passed is a digit (0-9) or alphabetical character (A-z), otherwise returns 0
+
+## man ft_isascii
+> prototype
+>> int ft_isascii(int c)
+>> 
+> return
+>> returns 1 if the char passed is a ascii value which is (0-127), otherwise returns 0
 
 
 # Result
