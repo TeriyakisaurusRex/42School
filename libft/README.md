@@ -185,6 +185,170 @@ printf("%s", s);
 free(s);
 ```
 
+## ft_bzero
+***be zero***
+### Prototype
+`void	ft_bzero(void *s, size_t n)`
+### Return Value
+void, doesn't return anything.
+### Dependancies
+- ft_memset
+### Example:
+```c
+char s[] = "string";
+bzero(string, ft_strlen(string));
+```
+
+## ft_calloc
+***contiguously allocate memory***
+### Prototype
+`void	*ft_calloc(size_t count, size_t size)`
+### Return Value
+returns a pointer to the allocated memory
+### Dependancies
+- ft_bzero
+- malloc
+### Example:
+```c
+char *s;
+s = ft_calloc(sizeof(char) * 10);
+```
+
+## ft_memchr
+***scan memory for char***
+### Prototype
+`void	*ft_memchr(const void *s, int c, size_t n)`
+### Return Value
+returns a pointer to the first occurance of *c* in the array, otherwise returns 0
+### Dependancies
+- None
+### Example:
+```c
+char s[] = "string";
+char c = 'r'
+printf("%s", ft_memchr(s, r, 5));
+```
+
+## ft_memcmp
+***memory compare***
+### Prototype
+`int	ft_memcmp(const void *s1, const void *s2, size_t n)`
+### Return Value
+Iterates over the string looking for a differnce in char value between the two arrays, the function will return an int that is the difference in ascii value i.e. 'a' - 'b' = -1
+### Dependancies
+- None
+### Example:
+```c
+char s1[] = "string";
+char s2[] = "strimg";
+printf("%d", ft_memcmp(s1, s2, 6));
+```
+
+## ft_memcpy
+***memory copy***
+### Prototype
+`void	*ft_memcpy(void *dst, const void *src, size_t n)`
+### Return Value
+copies *src* into *dst* *n* bytes then returns *dst*
+### Dependancies
+- None
+### Example:
+```c
+char s1[] = "string";
+char s2[] = "strimg";
+printf("%d", ft_memcpy(s1, s2, 6));
+```
+
+## ft_memmove
+***memory move***
+### Prototype
+`void	*ft_memmove(void *dst, const void *src, size_t len)`
+### Return Value
+copies *src* into *dst n* bytes **even if they are overlapping in memory** then returns *dst* 
+### Dependancies
+- None
+### Example:
+```c
+char s1[] = "string";
+char *s2 = s1[2];
+printf("%d", ft_memmove(s1, s2, 6));
+```
+
+## ft_memset
+***memory set***
+### Prototype
+`void	*ft_memset(void *b, int c, size_t n)`
+### Return Value
+sets *n* bytes of *b* string to the character *c* then returns a pointer to the string
+### Dependancies
+- None
+### Example:
+```c
+char s1[] = "string";
+char c = '!';
+printf("%d", ft_memset(s1, c, 3));
+```
+
+## ft_putchar_fd
+***write char to file descriptor***
+### Prototype
+`void	ft_putchar_fd(char c, int fd)`
+### Return Value
+writes the char *c* to the file descriptor (1 for standard output to the console)
+### Dependancies
+- <unistd.h>
+### Example:
+```c
+char c = '!';
+ft_putchar_fd(c, 1);
+```
+
+## ft_putendl_fd
+***write line to file descriptor***
+### Prototype
+`void	ft_putendl_fd(char *s, int fd)`
+### Return Value
+writes the string *s* with a `'\n'` char at the end of it to the file descriptor (1 for standard output to the console)
+### Dependancies
+- <unistd.h>
+- ft_putstr_fd
+- ft_putchar_fd
+### Example:
+```c
+char s[] = "This";
+ft_putendl_fd(s, 1);
+```
+
+## ft_putnbr_fd
+***write number to file descriptor***
+### Prototype
+`void	ft_putnbr_fd(int n, int fd)`
+### Return Value
+casts the number *n* to a string with *ft_atoi* then writes that string to the file descriptor (1 for standard output to the console)
+### Dependancies
+- <unistd.h>
+- ft_atoi
+- ft_putstr_fd
+### Example:
+```c
+int x = 42;
+ft_putnbr_fd(x, 1);
+```
+
+## ft_putstr_fd
+***write string to file descriptor***
+### Prototype
+`void	ft_putstr_fd(char *s, int fd)`
+### Return Value
+writes string *s* to the file descriptor (1 for standard output to the console)
+### Dependancies
+- <unistd.h>
+- ft_putchar_fd
+### Example:
+```c
+char s[] = "This";
+ft_putstr_fd(s, 1);
+```
 
 # Result
 125/100<img width="2065" alt="Screen Shot 2022-02-09 at 3 05 36 PM" src="https://user-images.githubusercontent.com/94874173/153122815-d47173ae-1a94-4335-a3bb-537402ad6db7.png">
