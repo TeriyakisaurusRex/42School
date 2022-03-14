@@ -74,10 +74,32 @@ then we can ft_calloc the individual strings one at a time, we take the original
 if we don't want to start with a variadic functions we can start with a function that takes a string and looks for `%` signs and the char after it and replace/insert something into that space i.e "This %s is valid" prints "This STRING is valid" then we can connect it to the variadic functions later.
 
 
+## Base Conversion
+*Hex, Octal, Binary, Decimal and Arbitrary*
+
+[Piscine Attempt](https://github.com/TeriyakisaurusRex/42Piscine/blob/main/C_04/ex04/ft_putnbr_base.c)
+
+- Hex / Hexidecimal / base 16 = [0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F]
+- Octal / base 8 = [0,1,2,3,4,5,6,7]
+- Binary / base 2 = [0,1]
+- Decimal / base 10 = [0,1,2,3,4,5,6,7,8,9]
+
+i hope you are noticing a pattern by now on how to count in different bases. They all start at 0 and have unique symbols for all the numbers up to their base - 1. classic arrays. we all know how to count in decimal but counting in the other bases is hard and confusing. 
+
+
+---
+
 Questions?
 - is accessing va_arg like access read-buffer in that it changes every time we look at it?
 - how does va_end actually work?
 - how does string "This %s%c%p work?" work?
+
+Error Handling
+- "string %"  -> % char at last index of array 
+- ""          -> empty string
+- "\0"        -> null string
+- "strin%g"   -> invalid char after % 
+- test invalid arguments i.e. %c with string
 
 Assumptions
 - String is valid
