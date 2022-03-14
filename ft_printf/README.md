@@ -53,7 +53,10 @@ Summary:
 |`#` Hastag Flag | NYI |
 |` ` Space Flag | NYI |
 |`+` Plus Flag | NYI |
-
+| **CUSTOM** |
+|`!` Red Text Flag - `\u001b[31m` | NYI |
+|`@` Blue Text Flag - `\u001b[34m` | NYI |
+|`&` Green Text Flag - `\u001b[32m` | NYI |
 ---
 we start with looking at variadic functions and how they work, first we add the `<stdarg.h>` header which contains some needed bits and bobs for variadic functions, they are four [(4)](https://en.wikipedia.org/wiki/4) different methods that we can use from stdarg which are
 | method | description |
