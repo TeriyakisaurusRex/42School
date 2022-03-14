@@ -54,6 +54,28 @@ Summary:
 |` ` Space Flag | NYI |
 |`+` Plus Flag | NYI |
 
+---
+we start with looking at variadic functions and how they work, first we add the `<stdarg.h>` header which contains some needed bits and bobs for variadic functions, they are four [(4)](https://en.wikipedia.org/wiki/4) different methods that we can use from stdarg which are
+| method | description |
+| ------ | ----------- |
+| `va_start(va_list POINTER, ARGUMENT_NUMBER)` | we initialize a va_list struct with this so we can access the arguments e.g va_list foo; va_start(foo, argN) |
+| `va_arg(va_list POINTER, TYPE)` | accesses next the next argument |
+| `va_copy(va_list DESTINATION, va_list SOURCE)` | just copies the va_list |
+| `va_end(va_list POINTER)` | this ends travesal of the arguments |
+
+va_list is a struct holding the data we need.
+
+ft_calloc a string array for the individual strings, we find how many strings we need by iterating over the string and counting the % signs (*ignoring the char after % because it could be another %*)
+then we can ft_calloc the individual strings one at a time, we take the original string up to the first % and put that in our array, then pass the %+char to a function to handle the variadic part, and that will put a string into the next array box
+
+if we don't want to start with a variadic functions we can start with a function that takes a string and looks for `%` signs and the char after it and replace/insert something into that space i.e "This %s is valid" prints "This STRING is valid" then we can connect it to the variadic functions later.
+
+
+Questions?
+- is accessing va_arg like access read-buffer in that it changes every time we look at it?
+- how does va_end actually work?
+- how does string "This %s%c%p work?" work?
+
 Assumptions
 - String is valid
 
