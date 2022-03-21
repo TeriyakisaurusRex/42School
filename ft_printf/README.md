@@ -12,6 +12,8 @@ Summary:
 |\*.c|
 
 >Documents & Information to learn
+> ### Printf
+>> [Printf](https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm)
 > ### Variadic Functions
 >> [Variadic funcitons in c](https://www.geeksforgeeks.org/variadic-functions-in-c/)
 > ### va_start
@@ -84,7 +86,7 @@ if we don't want to start with a variadic functions we can start with a function
 - Binary / base 2 = [0,1]
 - Decimal / base 10 = [0,1,2,3,4,5,6,7,8,9]
 
-i hope you are noticing a pattern by now on how to count in different bases. They all start at 0 and have unique symbols for all the numbers up to their base - 1. classic arrays. we all know how to count in decimal but counting in the other bases is hard and confusing. 
+i hope you are noticing a pattern by now on how to count in different bases. They all start at 0 and have unique symbols for all the numbers up to their base - 1. classic arrays. we all know how to count in decimal but counting in the other bases is hard and confusing. The math for this ends up pretty simple if we use some recursion, just copy my code linked from above. Although it failed the piscine because it didn't handle negatives.
 
 
 ---
@@ -93,6 +95,7 @@ Questions?
 - is accessing va_arg like access read-buffer in that it changes every time we look at it?
 - how does va_end actually work?
 - how does string "This %s%c%p work?" work?
+- how should it handle "%%%" three percent signs in a row?
 
 Error Handling
 - "string %"  -> % char at last index of array 
@@ -108,7 +111,7 @@ Ideas
 - calloc and concatenate old string with replaced parts, using ft_split and other functions
 - find old base converter from piscine and use that for some of the conversions
 - follow up on ft_sprintf() and ft_fprintf() 
-
+- Give up and do it the way everyone else is doing it (not using a array to store then print)
 
 # Result
 Not Handed In Yet / 100
