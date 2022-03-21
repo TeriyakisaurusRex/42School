@@ -164,6 +164,8 @@ now we can change our code to open and read from this file
 <img width="616" alt="image" src="https://user-images.githubusercontent.com/94874173/155053154-eeeefda3-9438-42fd-8904-decaec31e838.png">
 First line is buffer moving across 10 bytes at a time, second line is what we need to return. Only read in one direction and we won't be able to go backwards, if we mess this up we will lose a bit of data in the second string. So what we can do is store that data of the partial second line in a *static variable* . Then we can use that next time gnl is called. 
 
+---
+
 **Testers**
 [Tripouille](https://github.com/Tripouille/gnlTester.git)
 
