@@ -167,7 +167,8 @@ First line is buffer moving across 10 bytes at a time, second line is what we ne
 ---
 
 **Testers**
-[Tripouille](https://github.com/Tripouille/gnlTester.git)
+- [Tripouille](https://github.com/Tripouille/gnlTester.git)
+- [Aidan's Tester](https://github.com/Abaker-Hype/42-Cursus-Tester.git)
 
 **Assumptions**
 - We are reading text files, i.e. only char values and iterating one byte at a time
