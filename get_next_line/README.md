@@ -182,4 +182,5 @@ First line is buffer moving across 10 bytes at a time, second line is what we ne
 - make it work with and actual file ***done***
 
 # Result
-Not Handed In Yet / 100
+<img width="1839" alt="image" src="https://user-images.githubusercontent.com/94874173/162115891-6881a7a5-546b-4860-8876-01cc12280161.png">
+101 / 100
