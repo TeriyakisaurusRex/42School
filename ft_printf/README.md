@@ -42,23 +42,23 @@ Summary:
 
 | **Implementations Checklist** | **Done** |
 |:-----------------------|:------:|
-|`%c` Prints a single character | NYI |
-|`%s` Prints a string | NYI |
-|`%p` the *void* \* pointer argument has to be printed in hexadecimal format | NYI |
-|`%d` Prints a decimal (base 10) number | NYI | 
-|`%i` Prints an integer in base 10 | NYI |
-|`%u` Prints an unsigned decimal (base 10) number | NYI |
-|`%x` Prints a number in hexadecimal (base 16) lowercase format | NYI |
-|`%X` Prints a number in hexadecimal (base 16) uppercase format | NYI |
-|`%%` Prints a percent sign | NYI |
+|`%c` Prints a single character | CHECK |
+|`%s` Prints a string | CHECK |
+|`%p` the *void* \* pointer argument has to be printed in hexadecimal format | CHECK |
+|`%d` Prints a decimal (base 10) number | CHECK | 
+|`%i` Prints an integer in base 10 | CHECK |
+|`%u` Prints an unsigned decimal (base 10) number | CHECK |
+|`%x` Prints a number in hexadecimal (base 16) lowercase format | CHECK |
+|`%X` Prints a number in hexadecimal (base 16) uppercase format | CHECK |
+|`%%` Prints a percent sign | CHECK |
 | **BONUS** |
 |`#` Hastag Flag | NYI |
 |` ` Space Flag | NYI |
 |`+` Plus Flag | NYI |
 | **CUSTOM** |
-|`!` Red Text Flag - `\u001b[31m` | NYI |
-|`@` Blue Text Flag - `\u001b[34m` | NYI |
-|`&` Green Text Flag - `\u001b[32m` | NYI |
+|`!` Red Text Flag - `\u001b[31m` | ERROR |
+|`@` Blue Text Flag - `\u001b[34m` | ERROR |
+|`&` Green Text Flag - `\u001b[32m` | ERROR |
 ---
 we start with looking at variadic functions and how they work, first we add the `<stdarg.h>` header which contains some needed bits and bobs for variadic functions, they are four [(4)](https://en.wikipedia.org/wiki/4) different methods that we can use from stdarg which are
 | method | description |
