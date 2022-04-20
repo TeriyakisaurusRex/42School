@@ -6,7 +6,7 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 12:42:12 by jthiele           #+#    #+#             */
-/*   Updated: 2022/04/14 15:43:57 by jthiele          ###   ########.fr       */
+/*   Updated: 2022/04/20 13:39:50 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ int	ft_print_type(const char c, va_list v)
 		return (ft_print_radix(va_arg(v, unsigned int), "0123456789ABCDEF"));
 	else if (c == '%')
 		return (ft_print_char('%'));
+	else if (c == '!')
+		return (ft_print_str("\e[31m"));
+	else if (c == '@')
+		return (ft_print_str("\e[34m"));
+	else if (c == '&')
+		return (ft_print_str("\e[32m"));	
 	else
 		return (0);
 }
