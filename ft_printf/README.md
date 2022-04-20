@@ -115,4 +115,5 @@ Ideas
 - Give up and do it the way everyone else is doing it (not using a array to store then print)
 
 # Result
-Not Handed In Yet / 100
+<img width="2040" alt="image" src="https://user-images.githubusercontent.com/94874173/164152277-f4bb91cf-3d4a-4bf8-b9af-f7511b1b542f.png">
+100 / 100
