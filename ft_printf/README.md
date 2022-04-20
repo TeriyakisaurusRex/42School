@@ -56,9 +56,9 @@ Summary:
 |` ` Space Flag | NYI |
 |`+` Plus Flag | NYI |
 | **CUSTOM** |
-|`!` Red Text Flag - `\u001b[31m` | ERROR |
-|`@` Blue Text Flag - `\u001b[34m` | ERROR |
-|`&` Green Text Flag - `\u001b[32m` | ERROR |
+|`!` Red Text Flag - `\u001b[31m` | CHECK |
+|`@` Blue Text Flag - `\u001b[34m` | CHECK |
+|`&` Green Text Flag - `\u001b[32m` | CHECK |
 ---
 we start with looking at variadic functions and how they work, first we add the `<stdarg.h>` header which contains some needed bits and bobs for variadic functions, they are four [(4)](https://en.wikipedia.org/wiki/4) different methods that we can use from stdarg which are
 | method | description |
