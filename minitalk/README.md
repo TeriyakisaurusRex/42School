@@ -39,3 +39,18 @@ int main(void)
 }
 ```
 
+```c
+#include <stdio.h>
+int main(void)
+{
+  int x = 85;
+  int y = 0;
+  while (x > 0)
+  {
+    y += x & 1;
+    y <<= 1;
+    x >>= 1;
+  }
+  printf("%d", y);
+}
+```
