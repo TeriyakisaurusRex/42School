@@ -182,4 +182,6 @@ Please note that NGINX and Apache2 are prohibited.
 ---
 
 # Result
-Not Handed In Yet / 100
+106 / 100
+<img width="2040" alt="image" src="https://user-images.githubusercontent.com/94874173/170185351-417351ec-29b1-4e74-a7f2-0025b8d59166.png">
+
