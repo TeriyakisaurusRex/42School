@@ -43,14 +43,29 @@ int main(void)
 #include <stdio.h>
 int main(void)
 {
-  int x = 85;
-  int y = 0;
-  while (x > 0)
+  unsigned char init = 64;
+  unsigned char exit = 0;
+  unsigned char temp = 0;
+  int a = 7;
+  printf("init: %d\n", init);
+  
+  while (a--)
   {
-    y += x & 1;
-    y <<= 1;
-    x >>= 1;
+    exit += init & 1;
+    exit <<= 1;
+    init >>= 1;
   }
-  printf("%d", y);
+  exit += init & 1;
+  printf("exit: %d\n", exit);
+  a = 7;
+  while (a--)
+  {
+    temp += exit & 1;
+    temp <<= 1;
+    exit >>= 1;
+  }
+  temp += exit & 1;
+  exit = temp;
+  printf("final: %d", exit);
 }
 ```
