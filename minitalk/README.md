@@ -92,3 +92,43 @@ int main(void)
   printf("final: %d", exit);
 }
 ```
+
+## Server
+```c
+#include <stdio.h>
+#include <signal.h>
+#include <unistd.h>
+#include "ft_printf.h"
+
+void alert()
+{
+  ft_printf("Signal Received");
+}
+
+int main()
+{
+  ft_printf("%d", getpid());
+  signal(SIGUSR1, &alert);
+  while (1);
+    pause();
+}
+```
+Run the Server on one terminal and open another. Run Client on the second terminal and pass it the PID as runtime parameter (argv)
+
+## Client
+```c
+#include <stdio.h>
+#include <signal.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main()
+{
+  if (argc != 2)
+  {
+    printf("Error");
+    return (1);
+  }
+  kill(atoi(argv[1]), SIGUSR1);
+}
+```
