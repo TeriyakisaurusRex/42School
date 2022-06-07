@@ -53,12 +53,15 @@ We need the server to continuously run and wait for signals and interpret them. 
 ## Client side
 The client will be sending a stream of bits to the server, first it will have to parse the input string to bits (1s and 0s) and send them to the server
 
+## UTF-8
+4 Bytes per Character instead of 1
+💥 = \U0001F4A5 Hex value 
+
 # Questions
-- how does the client get the server pid
+- how does the client get the server pid? *The server displays its pid on startup*
 - which is the best way to deconstruct and reconstruct a string
 - how does the server know when the whole message has been received
 - how do i implement UFT-8 instead of ASCII
-
 
 ## try also
 ```c
