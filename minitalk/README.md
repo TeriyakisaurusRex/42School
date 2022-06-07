@@ -26,6 +26,16 @@ You must create a communication program in the form of a client and a server.The
 - [signal](https://man7.org/linux/man-pages/man7/signal.7.html)
 - [sigusr1 & 2](https://www.gnu.org/software/libc/manual/html_node/Miscellaneous-Signals.html)
 
+### signal
+`#include <signal.h>`
+just a listener for a signal
+`signal(SIGNAL, &FUNCTION);` we are using SIGUSR1 and SIGUSR2 for the SIGNAL here and using the same function to handle them which will know if they are a 1 or a 0 for our binary reconstruction/deconstruction. 
+
+### kill
+`#include <signal.h>`
+sending a signal to a listener
+`kill(PID, SIGNAL);` we are sending to the server PID so we need the server to broadcast/display this when we start it up and we are either sending SIGUSR1 or SIGUSR2
+
 ## User Signals
 we can only send SIGUSR1 & SIGUSR2 for signals to send, i thought at first we could redefine the information in the signal as it is 4 bytes of info, but that is not really how signals work, we MUST use them for binary and not worry about the value of them, only that SIGUSR1 != SIGUSR2.
 ```c
