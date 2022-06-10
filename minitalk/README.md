@@ -145,3 +145,6 @@ int main()
   kill(atoi(argv[1]), SIGUSR1);
 }
 ```
+# Result
+125 / 100
+
