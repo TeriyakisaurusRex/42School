@@ -51,6 +51,12 @@ while (x2 + y2 ≤ 4 and iteration < max_iteration) do
     iteration := iteration + 1
 ```
 
+## Inputs
+
+`./fractol [fractal name] [window width] [window height]`
+width and height cannot be < 100
+
+Currently way too slow and need to change colours
 
 # Result
 NOT HANDED IN YET / 100
