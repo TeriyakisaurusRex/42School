@@ -51,12 +51,17 @@ while (x2 + y2 ≤ 4 and iteration < max_iteration) do
     iteration := iteration + 1
 ```
 
-## Inputs
+## Fix
+- `./fractol [fractal name] [window width] [window height]`
+- width and height cannot be < 100
+- Currently way too slow and need to change colours
+- fix zoom
+- use strcmp
 
-`./fractol [fractal name] [window width] [window height]`
-width and height cannot be < 100
-
-Currently way too slow and need to change colours
+## Repos to look at (copy)
+[Librity](https://github.sre.pub/librity/ft_fractol)
+[Enrique](https://github.sre.pub/EnriqueSLeeK/fract-ol)
+[Shawtanap](https://github.sre.pub/shwatanap/fract-ol/tree/main/srcs)
 
 # Result
 NOT HANDED IN YET / 100
