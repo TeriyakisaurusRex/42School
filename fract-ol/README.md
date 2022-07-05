@@ -16,8 +16,11 @@
 >>[MiniLibx](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html)
 
 [MiniLibX repo](https://github.com/42Paris/minilibx-linux)
+
 [Getting Started](https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx)
+
 [Plotting Algorithms](https://en.wikipedia.org/wiki/Plotting_algorithms_for_the_Mandelbrot_set)
+
 The Gist of it
 ```
 for each pixel (Px, Py) on the screen do
@@ -60,7 +63,9 @@ while (x2 + y2 ≤ 4 and iteration < max_iteration) do
 
 ## Repos to look at (copy)
 [Librity](https://github.sre.pub/librity/ft_fractol)
+
 [Enrique](https://github.sre.pub/EnriqueSLeeK/fract-ol)
+
 [Shawtanap](https://github.sre.pub/shwatanap/fract-ol/tree/main/srcs)
 
 # Result
