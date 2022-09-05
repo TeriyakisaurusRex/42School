@@ -62,11 +62,11 @@ while (x2 + y2 ≤ 4 and iteration < max_iteration) do
 - use strcmp for the argv
 
 ## Repos to look at (copy)
-[Librity](https://github.sre.pub/librity/ft_fractol)
+[Librity](https://github.com/librity/ft_fractol)
 
-[Enrique](https://github.sre.pub/EnriqueSLeeK/fract-ol)
+[Enrique](https://github.com/EnriqueSLeeK/fract-ol)
 
-[Shawtanap](https://github.sre.pub/shwatanap/fract-ol/tree/main/srcs)
+[Shawtanap](https://github.com/shwatanap/fract-ol/tree/main/srcs)
 
 # Result
 NOT HANDED IN YET / 100
