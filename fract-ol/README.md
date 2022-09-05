@@ -58,8 +58,8 @@ while (x2 + y2 ≤ 4 and iteration < max_iteration) do
 - `./fractol [fractal name] [window width] [window height]`
 - width and height cannot be < 100
 - Currently way too slow and need to change colours
-- fix zoom
-- use strcmp
+- fix zoom, re-renders entire fractal, need to do a quick render, and it needs to zoom at the mouse location, not middle
+- use strcmp for the argv
 
 ## Repos to look at (copy)
 [Librity](https://github.sre.pub/librity/ft_fractol)
