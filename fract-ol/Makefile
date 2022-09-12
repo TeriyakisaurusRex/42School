@@ -6,7 +6,7 @@
 #    By: jthiele <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 14:20:49 by jthiele           #+#    #+#              #
-#    Updated: 2022/06/22 14:25:51 by jthiele          ###   ########.fr        #
+#    Updated: 2022/06/29 13:54:23 by jthiele          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,12 @@ INCDIR = ./include
 OBJDIR = ./obj
 
 # src
-SRC 	=	main.c 
-#			image.c \
-#			main.c \
-#			zoom.c \
-#		  $(addprefix fractals/,$(shell ls $(SRCDIR)/fractals | grep -E ".+\.c"))
+SRC 	=	main.c \
+			imagewindow.c \
+			key_hooks.c \
+			mouse_hooks.c \
+			plot_fractal.c \
+			colour.c 
 
 OBJ		= $(addprefix $(OBJDIR)/,$(SRC:.c=.o))
 
@@ -43,7 +44,6 @@ all: obj $(MLX_LIB) $(NAME)
 
 obj:
 	mkdir -p $(OBJDIR)
-#	mkdir -p $(OBJDIR)/fractals
 
 $(OBJDIR)/%.o:$(SRCDIR)/%.c
 	$(CC) $(CFLAGS) $(MLX_INC) -I $(INCDIR) -o $@ -c $<
