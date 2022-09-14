@@ -69,4 +69,5 @@ while (x2 + y2 ≤ 4 and iteration < max_iteration) do
 [Shawtanap](https://github.com/shwatanap/fract-ol/tree/main/srcs)
 
 # Result
-NOT HANDED IN YET / 100
+<img width="2040" alt="image" src="https://user-images.githubusercontent.com/94874173/190076734-4c120e18-ca77-4699-a81b-be46b0ba20cf.png">
+125 / 100
