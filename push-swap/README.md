@@ -51,3 +51,9 @@ You have 2 stacks named `a` and `b`. The stack a contains a random amount of neg
 > - Method: Merging
 > - Stable: Yes
 > ---
+
+## Links
+> [Efficient Push_Swap](https://www.codequoi.com/en/push_swap-efficient-positional-sorting-algorithm/#sorting_algorithm_for_over_3_numbers)
+> [Push Rotate](https://kipplesunderscore.github.io/posts/push-swap/)
+> [Push Swap tutorial](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)
+> [Least steps Push Swap](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
