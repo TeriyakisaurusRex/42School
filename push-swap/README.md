@@ -53,7 +53,7 @@ You have 2 stacks named `a` and `b`. The stack a contains a random amount of neg
 > ---
 
 ## Links
-> 🌟[Efficient Push_Swap](https://www.codequoi.com/en/push_swap-efficient-positional-sorting-algorithm/#sorting_algorithm_for_over_3_numbers)
+> 🌟[Efficient Push_Swap](https://web.archive.org/web/20220802162832/https://www.codequoi.com/en/push_swap-efficient-positional-sorting-algorithm/)
 
 > [Push Rotate](https://kipplesunderscore.github.io/posts/push-swap/)
 
