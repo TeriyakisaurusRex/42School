@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 static void get_position(t_stack **stack);
 static int get_target(t_stack **a, int b_index, int t_index, int target_pos);

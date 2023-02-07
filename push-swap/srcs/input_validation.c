@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 static int      num_check(char *argv);
 static int      check_int(char *argv);
@@ -58,9 +58,9 @@ static int duplicate_detected(char *argv, char **av, int i)
     long int num;
 
     num = ft_atoi(argv);
-    while (av[i++])
+    while (av[i+1])
     {
-        if (num == ft_atoi(av[i++]))
+        if (num == ft_atoi(av[i+1]))
             return (-1);
         i++;
     }
@@ -74,5 +74,6 @@ static int invalid_input(int error)
         write(1, "Error\n", 6);
         exit(1);
     }
+
     return (-1);
 }

@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 static void push(t_stack **origin, t_stack **dest)
 {
@@ -7,7 +7,7 @@ static void push(t_stack **origin, t_stack **dest)
     if (*origin == NULL)
         return;
     temp = (*origin)->next;
-    (*origin)->next = *next;
+    (*origin)->next = *dest;
     *dest = *origin;
     *origin = temp;
 }

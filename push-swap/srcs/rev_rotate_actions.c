@@ -1,6 +1,6 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-t_stack *second_last(t_stack **stack);
+t_stack *second_last(t_stack *stack);
 
 static void rev_rotate(t_stack **stack)
 {
@@ -16,19 +16,19 @@ static void rev_rotate(t_stack **stack)
     sec_last->next = NULL;
 }
 
-static void rra(t_stack **stacka)
+void rra(t_stack **stacka)
 {
     rev_rotate(stacka);
     write(1, "rra\n", 4);
 }
 
-static void rrb(t_stack **stackb)
+void rrb(t_stack **stackb)
 {
     rev_rotate(stackb);
     write(1, "rrb\n", 4);
 }
 
-static void rrr(t_stack **stacka, t_stack **stackb)
+void rrr(t_stack **stacka, t_stack **stackb)
 {
     rev_rotate(stacka);
     rev_rotate(stackb);

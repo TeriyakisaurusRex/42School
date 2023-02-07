@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 static void rotate(t_stack **stack)
 {
@@ -12,19 +12,19 @@ static void rotate(t_stack **stack)
     end->next = temp;
 }
 
-static void ra(t_stack **stacka)
+void ra(t_stack **stacka)
 {
     rotate(stacka);
     write(1, "ra\n", 3);
 }
 
-static void rb(t_stack **stackb)
+void rb(t_stack **stackb)
 {
     rotate(stackb);
     write(1, "rb\n", 3);
 }
 
-static void rr(t_stack **stacka, t_stack **stackb)
+void rr(t_stack **stacka, t_stack **stackb)
 {
     rotate(stacka);
     rotate(stackb);

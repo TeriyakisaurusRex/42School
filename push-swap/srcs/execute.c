@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 static void rotate_stacks(t_stack **a, t_stack **b, int *costa, int *costb);
 static void rev_rotate_stacks(t_stack **a, t_stack **b, int *costa, int *costb);
@@ -36,7 +36,7 @@ static void rev_rotate_stacks(t_stack ** a, t_stack ** b, int * costa, int * cos
     }
 }
 
-static void rotate_a(t_stack *a, int *cost)
+static void rotate_a(t_stack **a, int *cost)
 {
     while (*cost)
     {
@@ -53,7 +53,7 @@ static void rotate_a(t_stack *a, int *cost)
     }
 }
 
-static void rotate_b(t_stack *b, int *cost)
+static void rotate_b(t_stack **b, int *cost)
 {
     while(*cost)
     {

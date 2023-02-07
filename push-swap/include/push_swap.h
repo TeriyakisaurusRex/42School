@@ -3,6 +3,7 @@
 
 # include <unistd.h>
 # include <limits.h> //?
+#include <stdlib.h> //for exit
 
 //# define DEFINE 0
 //# define MAX_INT 0
@@ -14,8 +15,8 @@ typedef struct s_stack
     int index;      // index in the list of all values
     int pos;        // current position in stack
     int target_pos; // where it wants to go 
-    int cost_a;     // how many actions it would take it to get to the top of stack a
-    int cost_b;     // how many actions it would take it to get to the top of stack b
+    int costa;     // how many actions it would take it to get to the top of stack a
+    int costb;     // how many actions it would take it to get to the top of stack b
     struct s_stack *next;  // next struct
 }   t_stack;
 
