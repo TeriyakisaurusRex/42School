@@ -115,6 +115,10 @@ Bucket Sort:
 > - Space complexity - O(n + k)
 ---
 
+##Todo
+- get checker working
+- submit
+
 ## Links
 > 🌟[Efficient Push_Swap](https://web.archive.org/web/20220802162832/https://www.codequoi.com/en/push_swap-efficient-positional-sorting-algorithm/)
 
