@@ -6,14 +6,14 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 14:42:16 by jthiele           #+#    #+#             */
-/*   Updated: 2023/02/07 14:42:34 by jthiele          ###   ########.fr       */
+/*   Updated: 2023/02/07 15:07:17 by jthiele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void free_stacks(t_stack **stack);
-static void sort_method(t_stack **stacka, t_stack **stackb, int size);
+void		free_stacks(t_stack **stack);
+static void	sort_method(t_stack **stacka, t_stack **stackb, int size);
 
 int	sorted(t_stack *stack)
 {
