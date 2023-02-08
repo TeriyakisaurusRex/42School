@@ -130,5 +130,5 @@ Bucket Sort:
 
 > [AdrianW](https://github.com/AdrianWR/push_swap)
 
-#Result
+# Result
 100/100
