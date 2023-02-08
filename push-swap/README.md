@@ -129,3 +129,6 @@ Bucket Sort:
 > [Least steps Push Swap](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
 
 > [AdrianW](https://github.com/AdrianWR/push_swap)
+
+#Result
+100/100
