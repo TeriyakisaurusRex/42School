@@ -26,3 +26,79 @@ A mutex is a locking mechanism that provides mutually exclusive access to a shar
 A semaphore, on the other hand, is a signaling mechanism that allows multiple processes to access a shared resource. A semaphore has an associated count value, which represents the number of processes that can access the shared resource at any given time. When a process acquires a semaphore, its count is decremented, and when it releases the semaphore, its count is incremented. If the count is zero, any processes attempting to acquire the semaphore will block until the count becomes non-zero.
 
 So, the main difference between mutexes and semaphores is that mutexes provide mutually exclusive access to a shared resource, while semaphores provide controlled access to a shared resource. Mutexes are used to lock resources, while semaphores are used to signal between processes. Mutexes are usually binary, meaning that they have a state of either locked or unlocked, while semaphores can have a count greater than one, allowing multiple processes to access the shared resource.
+
+---
+
+Learn about
+- Mutexes
+- Semaphores
+- Time functions
+- Threads
+
+---
+
+some simple example to learn from 
+```c
+#include <pthread.h>
+#include <stdio.h>
+#include <unistd.h>
+
+#define NUM_PHILOSOPHERS 5
+#define NUM_FORKS 5
+
+pthread_mutex_t forks[NUM_FORKS];
+
+void *philosopher(void *id) {
+  int philosopher_id = *((int *)id);
+  int left_fork = philosopher_id;
+  int right_fork = (philosopher_id + 1) % NUM_FORKS;
+
+  while (1) {
+    printf("Philosopher %d is thinking\n", philosopher_id);
+    sleep(1);
+
+    printf("Philosopher %d is trying to grab left fork %d\n", philosopher_id,
+           left_fork);
+    pthread_mutex_lock(&forks[left_fork]);
+    printf("Philosopher %d grabbed left fork %d\n", philosopher_id, left_fork);
+
+    printf("Philosopher %d is trying to grab right fork %d\n", philosopher_id,
+           right_fork);
+    pthread_mutex_lock(&forks[right_fork]);
+    printf("Philosopher %d grabbed right fork %d\n", philosopher_id,
+           right_fork);
+
+    printf("Philosopher %d is eating\n", philosopher_id);
+    sleep(1);
+
+    printf("Philosopher %d is releasing left fork %d\n", philosopher_id,
+           left_fork);
+    pthread_mutex_unlock(&forks[left_fork]);
+
+    printf("Philosopher %d is releasing right fork %d\n", philosopher_id,
+           right_fork);
+    pthread_mutex_unlock(&forks[right_fork]);
+  }
+}
+
+int main() {
+  pthread_t philosophers[NUM_PHILOSOPHERS];
+  int philosopher_ids[NUM_PHILOSOPHERS];
+
+  for (int i = 0; i < NUM_FORKS; i++) {
+    pthread_mutex_init(&forks[i], NULL);
+  }
+
+  for (int i = 0; i < NUM_PHILOSOPHERS; i++) {
+    philosopher_ids[i] = i;
+    pthread_create(&philosophers[i], NULL, philosopher, &philosopher_ids[i]);
+  }
+
+  for (int i = 0; i < NUM_PHILOSOPHERS; i++) {
+    pthread_join(philosophers[i], NULL);
+  }
+
+  return 0;
+}
+
+```
