@@ -37,6 +37,58 @@ Learn about
 
 ---
 
+**Mutex Example**
+
+```c
+#include <pthread.h>
+#include <unistd.h>
+#include <stdio.h>
+
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+
+void *thread1_func(void *arg) {
+    pthread_mutex_lock(&mutex);
+    printf("Thread 1 is running\n");
+    usleep(100000);
+    printf("Thread 1 is done\n");
+    pthread_mutex_unlock(&mutex);
+    return NULL;
+}
+
+void *thread2_func(void *arg) {
+    pthread_mutex_lock(&mutex);
+    printf("Thread 2 is running\n");
+    usleep(100000);
+    printf("Thread 2 is done\n");
+    pthread_mutex_unlock(&mutex);
+    return NULL;
+}
+
+int main() {
+    pthread_t thread1, thread2;
+    pthread_create(&thread1, NULL, thread1_func, NULL);
+    pthread_create(&thread2, NULL, thread2_func, NULL);
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+    return 0;
+}
+```
+In this example, two threads are created with pthread_create and run concurrently. The usleep function is used to simulate some work being done by each thread. To synchronize the execution of the threads, a mutex is used. The mutex is locked with pthread_mutex_lock before each thread starts its work, and unlocked with pthread_mutex_unlock after the work is done. This ensures that only one thread can access the critical section at a time. The pthread_join function is used to wait for each thread to finish before exiting the main function.
+
+```c
+int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
+                   void *(*start_routine) (void *), void *arg);
+```
+
+The pthread_create function takes the following arguments:
+- thread: This argument is a pointer to a pthread_t variable, which will receive the ID of the newly created thread.
+- attr: This argument is a pointer to a pthread_attr_t structure, which specifies optional attributes for the new thread. This argument can be set to NULL to use the default thread attributes.
+- start_routine: This argument is a pointer to a function that will be executed by the new thread. The function must take a single void * argument and return void *.
+- arg: This argument is a pointer to the data that will be passed as an argument to the start_routine function.
+
+---
+
+
 some simple example to learn from 
 ```c
 #include <pthread.h>
