@@ -88,6 +88,16 @@ The pthread_create function takes the following arguments:
 
 ---
 
+## Exercises to Reinforce Learning
+
+- Write a program that uses two threads to print out numbers 1 to 100 in order. One thread should print out the odd numbers, and the other thread should print out the even numbers. Use a mutex to synchronize the threads.
+- Write a program that uses multiple threads to sort an array of integers using merge sort. Each thread should sort a portion of the array, and then the main thread should merge the sorted portions together. Use mutexes to synchronize the threads.
+- Write a program that uses multiple threads to compute the sum of a large array of integers. Each thread should compute the sum of a portion of the array, and then the main thread should combine the partial sums. Use mutexes to synchronize the threads.
+- Write a program that uses two threads to simulate a producer-consumer problem. One thread should generate random numbers and put them in a buffer, while the other thread should remove the numbers from the buffer and print them out. Use a mutex and a condition variable to synchronize the threads.
+- Write a program that uses multiple threads to search for a target value in a large array of integers. Each thread should search a portion of the array, and then the main thread should combine the results. Use mutexes to synchronize the threads.
+
+---
+
 
 some simple example to learn from 
 ```c
