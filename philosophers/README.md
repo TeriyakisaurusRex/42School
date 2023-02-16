@@ -97,6 +97,59 @@ The pthread_create function takes the following arguments:
 - Write a program that uses multiple threads to search for a target value in a large array of integers. Each thread should search a portion of the array, and then the main thread should combine the results. Use mutexes to synchronize the threads.
 
 ---
+## Learning in Python
+
+```py
+import time
+import threading
+
+start_time = time.time()
+
+# Define a shared resource
+shared_resource = 0
+
+# Create a lock to control access to the shared resource
+lock = threading.Lock()
+
+def increment(s):
+    global shared_resource
+    while shared_resource < 200:
+        waitstart = time.time()
+        lock.acquire()  # acquire the lock
+        waittime = time.time() - waitstart
+        if s == "First" and shared_resource % 2 == 0:
+            shared_resource += 1
+            print(f"[{shared_resource}] from thread [{threading.get_ident()}] waited [{waittime:.5f}ms]")
+            time.sleep(0.002)
+        if s == "Second" and shared_resource % 2 == 1:
+            shared_resource += 1
+            print(f"[{shared_resource}] from thread [{threading.get_ident()}] waited [{waittime:.5f}ms]")
+            time.sleep(0.002)
+        lock.release()  # release the lock
+
+# Create two threads to increment the shared resource
+thread1 = threading.Thread(target=increment, args=("First",))
+print("First Thread Created")
+thread2 = threading.Thread(target=increment, args=("Second",))
+print("Second Thread Created")
+
+# Start the threads
+thread1.start()
+thread2.start()
+
+# Wait for the threads to finish
+thread1.join()
+thread2.join()
+
+print("The value of the shared resource is:", shared_resource)
+
+end_time = time.time()
+elapsed_time = (end_time - start_time) * 1000
+
+print(f"Elapsed time: {elapsed_time:.2f} ms")
+```
+
+---
 
 
 some simple example to learn from 
