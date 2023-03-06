@@ -150,7 +150,143 @@ print(f"Elapsed time: {elapsed_time:.2f} ms")
 ```
 
 ---
+```c
+#include <pthread.h>
+#include <stdio.h>
+#include <unistd.h>
 
+int num_philosophers = 2;
+
+struct Philosopher {
+    int ID;
+    int state; //0 - thinking 1 eating, 2 sleeping, 3 ded
+    int time_to_eat;
+    int time_to_sleep;
+    int time_to_die;
+}
+
+int main(int argc, char **argv) {
+
+    int num_philosophers;
+    int time_to_die_ms, time_to_eat_ms, time_to_sleep_ms;
+    int i;
+
+    if (argc < 5) {
+    printf("Usage: ./program number_of_philosophers time_to_die time_to_eat time_to_sleep\n");
+    return (1) ;
+    }
+  
+  num_philosophers = atoi(argv[1]);
+  time_to_die_ms = atoi(argv[2]);
+  time_to_eat_ms = atoi(argv[3]);
+  time_to_sleep_ms = atoi(argv[4]);
+
+    pthread_t philosophers[num_philosophers];
+
+    for (int i = 0; i < num_philosophers; i++) {
+        pthread_mutex_init(&forks[i], NULL);
+    }
+
+    for (int i = 0; i < num_philosophers; i++) {
+        pthread_create(&philosophers[i], NULL, philosophers, (void *)i);
+    }
+
+    for (int i = 0; i < num_philosophers; i++) {
+        pthread_join(philosophers[i], NULL);
+    }
+
+    return 0;
+}
+
+pthread_mutex_t forks[num_philosophers];
+
+void *philosopher_behavior(void *arg) {
+  struct Philosopher *phil = (struct Philosopher *)arg;
+  int ID = phil->ID;
+  int left_fork = ID;
+  int right_fork = (ID + 1) % num_philosophers;
+  int time_passed = 0;
+  
+  while (time_passed < phil->time_to_die) {
+    // try to acquire both forks
+    pthread_mutex_lock(&forks[left_fork]);
+    pthread_mutex_lock(&forks[right_fork]);
+    
+    // update state to eating
+    phil->state = 1;
+    display_state(phil, time_passed, " has taken both forks");
+    
+    // eat for designated time
+    usleep(phil->time_to_eat * 1000);
+    time_passed += phil->time_to_eat;
+    
+    // release both forks
+    pthread_mutex_unlock(&forks[left_fork]);
+    pthread_mutex_unlock(&forks[right_fork]);
+    
+    // update state to either sleeping or thinking
+    int random_number = rand() % 2;
+    if (random_number == 0) {
+      // sleep
+      phil->state = 2;
+      display_state(phil, time_passed, " is sleeping");
+      usleep(phil->time_to_sleep * 1000);
+      time_passed += phil->time_to_sleep;
+    } else {
+      // think
+      phil->state = 0;
+      display_state(phil, time_passed, " is thinking");
+    }
+  }
+
+void *philosopher_behavior(void *arg) {
+  struct Philosopher *phil = (struct Philosopher *)arg;
+  int ID = phil->ID;
+  int left_fork = ID;
+  int right_fork = (ID + 1) % number_of_philosophers;
+  int time_passed = 0;
+  
+  while (time_passed < phil->time_to_die) {
+    // try to acquire both forks
+    pthread_mutex_lock(&forks[left_fork]);
+    pthread_mutex_lock(&forks[right_fork]);
+    
+    // update state to eating
+    phil->state = 1;
+    display_state(phil, time_passed, " has taken both forks");
+    
+    // eat for designated time
+    usleep(phil->time_to_eat * 1000);
+    time_passed += phil->time_to_eat;
+    
+    // release both forks
+    pthread_mutex_unlock(&forks[left_fork]);
+    pthread_mutex_unlock(&forks[right_fork]);
+    
+    // update state to either sleeping or thinking
+    int random_number = rand() % 2;
+    if (random_number == 0) {
+      // sleep
+      phil->state = 2;
+      display_state(phil, time_passed, " is sleeping");
+      usleep(phil->time_to_sleep * 1000);
+      time_passed += phil->time_to_sleep;
+    } else {
+      // think
+      phil->state = 0;
+      display_state(phil, time_passed, " is thinking");
+    }
+  }
+  
+  // update state to dead
+  phil->state = 3;
+  display_state(phil, time_passed, " has died");
+  
+  return NULL;
+}
+```
+
+---
 
 some simple example to learn from 
 ```c
