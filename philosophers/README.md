@@ -151,138 +151,57 @@ print(f"Elapsed time: {elapsed_time:.2f} ms")
 
 ---
 ```c
-#include <pthread.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <sys/time.h>
 #include <unistd.h>
 
-int num_philosophers = 2;
-
-struct Philosopher {
-    int ID;
-    int state; //0 - thinking 1 eating, 2 sleeping, 3 ded
-    int time_to_eat;
-    int time_to_sleep;
-    int time_to_die;
+double ft_abs(double time)
+{
+    if (time < 0)
+        return (time * -1);
+    return (time);
 }
 
-int main(int argc, char **argv) {
+// Define a shared resource
+int shared_resource = 0;
 
-    int num_philosophers;
-    int time_to_die_ms, time_to_eat_ms, time_to_sleep_ms;
-    int i;
+// Create a lock to control access to the shared resource
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
-    if (argc < 5) {
-    printf("Usage: ./program number_of_philosophers time_to_die time_to_eat time_to_sleep\n");
-    return (1) ;
+void increment(char *s) {
+    struct timeval start_time, end_time;
+    double waittime;
+    gettimeofday(&start_time, NULL);
+    while (shared_resource < 199) {
+        gettimeofday(&end_time, NULL);
+        if (pthread_mutex_lock(&lock) == 0)
+        {
+            if (*s == 'F' && shared_resource % 2 == 0 || *s == 'S' && shared_resource % 2 == 1) {
+                shared_resource++;
+                //usleep(1000);
+                //gettimeofday(&end_time, NULL);
+                waittime = (end_time.tv_sec - start_time.tv_sec) * 1000.0;
+                waittime += (end_time.tv_usec - start_time.tv_usec) / 1000.0;
+                printf("[%d] from thread [%lu] waited [%.5f] ms\n", shared_resource, pthread_self(), waittime);    
+            }
+        }
+        pthread_mutex_unlock(&lock);  // release the lock
     }
-  
-  num_philosophers = atoi(argv[1]);
-  time_to_die_ms = atoi(argv[2]);
-  time_to_eat_ms = atoi(argv[3]);
-  time_to_sleep_ms = atoi(argv[4]);
+}
 
-    pthread_t philosophers[num_philosophers];
-
-    for (int i = 0; i < num_philosophers; i++) {
-        pthread_mutex_init(&forks[i], NULL);
-    }
-
-    for (int i = 0; i < num_philosophers; i++) {
-        pthread_create(&philosophers[i], NULL, philosophers, (void *)i);
-    }
-
-    for (int i = 0; i < num_philosophers; i++) {
-        pthread_join(philosophers[i], NULL);
-    }
-
+int main() {
+    pthread_t thread1, thread2;
+    printf("First Thread Created\n");
+    pthread_create(&thread1, NULL, (void *)increment, "First");
+    printf("Second Thread Created\n");
+    pthread_create(&thread2, NULL, (void *)increment, "Second");
+    // Wait for the threads to finish
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+    printf("The value of the shared resource is: %d\n", shared_resource);
     return 0;
-}
-
-pthread_mutex_t forks[num_philosophers];
-
-void *philosopher_behavior(void *arg) {
-  struct Philosopher *phil = (struct Philosopher *)arg;
-  int ID = phil->ID;
-  int left_fork = ID;
-  int right_fork = (ID + 1) % num_philosophers;
-  int time_passed = 0;
-  
-  while (time_passed < phil->time_to_die) {
-    // try to acquire both forks
-    pthread_mutex_lock(&forks[left_fork]);
-    pthread_mutex_lock(&forks[right_fork]);
-    
-    // update state to eating
-    phil->state = 1;
-    display_state(phil, time_passed, " has taken both forks");
-    
-    // eat for designated time
-    usleep(phil->time_to_eat * 1000);
-    time_passed += phil->time_to_eat;
-    
-    // release both forks
-    pthread_mutex_unlock(&forks[left_fork]);
-    pthread_mutex_unlock(&forks[right_fork]);
-    
-    // update state to either sleeping or thinking
-    int random_number = rand() % 2;
-    if (random_number == 0) {
-      // sleep
-      phil->state = 2;
-      display_state(phil, time_passed, " is sleeping");
-      usleep(phil->time_to_sleep * 1000);
-      time_passed += phil->time_to_sleep;
-    } else {
-      // think
-      phil->state = 0;
-      display_state(phil, time_passed, " is thinking");
-    }
-  }
-
-void *philosopher_behavior(void *arg) {
-  struct Philosopher *phil = (struct Philosopher *)arg;
-  int ID = phil->ID;
-  int left_fork = ID;
-  int right_fork = (ID + 1) % number_of_philosophers;
-  int time_passed = 0;
-  
-  while (time_passed < phil->time_to_die) {
-    // try to acquire both forks
-    pthread_mutex_lock(&forks[left_fork]);
-    pthread_mutex_lock(&forks[right_fork]);
-    
-    // update state to eating
-    phil->state = 1;
-    display_state(phil, time_passed, " has taken both forks");
-    
-    // eat for designated time
-    usleep(phil->time_to_eat * 1000);
-    time_passed += phil->time_to_eat;
-    
-    // release both forks
-    pthread_mutex_unlock(&forks[left_fork]);
-    pthread_mutex_unlock(&forks[right_fork]);
-    
-    // update state to either sleeping or thinking
-    int random_number = rand() % 2;
-    if (random_number == 0) {
-      // sleep
-      phil->state = 2;
-      display_state(phil, time_passed, " is sleeping");
-      usleep(phil->time_to_sleep * 1000);
-      time_passed += phil->time_to_sleep;
-    } else {
-      // think
-      phil->state = 0;
-      display_state(phil, time_passed, " is thinking");
-    }
-  }
-  
-  // update state to dead
-  phil->state = 3;
-  display_state(phil, time_passed, " has died");
-  
-  return NULL;
 }
 ```
 
